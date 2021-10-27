@@ -45,9 +45,9 @@ module.exports.details = (req, res, next) => {
 module.exports.displayAddPage = (req, res, next) => {
     let newBook = Book();
 
-    res.render('add_edit', {
+    res.render('book/add_edit', {
         title:'Add Book',
-        Book: newBook
+        book: newBook
     }); 
 }
 
@@ -85,7 +85,7 @@ module.exports.displayEditPage = (req, res, next) => {
         }else{
             res.render('book/add_edit', {
                 title: "Edit Book",
-                Book: bookToEdit
+                book: bookToEdit
             })
         }
     });
@@ -94,14 +94,37 @@ module.exports.displayEditPage = (req, res, next) => {
 
 // Processes the data submitted from the Edit form to update a book
 module.exports.processEditPage = (req, res, next) => {
+        let id = req.params.id;
+        let updatedBook = Book({
+            _id:req.body.id,
+            Title: req.body.Title,
+            Description: req.body.Description,
+            Price: req.body.Price,
+            Author: req.body.Author,
+            Genre: req.body.Genre
     
-    // ADD YOUR CODE HERE
+        });
+        Book.updateOne({_id: id}, updatedBook, (err) => {
+            if(err){
+                console.log(err);
+                res.end(err);
+            }else{
+                res.redirect('/book/list');
+            }
+        });
     
 }
 
 // Deletes a book based on its id.
 module.exports.performDelete = (req, res, next) => {
-    
-    // ADD YOUR CODE HERE
+    let id = req.params.id;
+
+    Book.remove({_id: id}, (err) => {
+        if(err){
+
+        }else{
+            res.redirect('/book/list');
+        }
+    });
 
 }

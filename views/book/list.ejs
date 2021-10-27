@@ -11,7 +11,7 @@
             <!-- ------------------------ -->
             <!-- <a href=""><input type="button" class="btn btn-primary align-self-end"><i class="fas fa-plus-circle"></i>Add a new Item</a> -->
             
-            <a href="add_edit" class="btn btn-primary align-self-end"> <i class="fas fa-plus-circle"></i> Add a new Item</a>
+            <a href="/book/add" class="btn btn-primary align-self-end"> <i class="fas fa-plus-circle"></i> Add a new Item</a>
             <!-- <a href="#" class="btn btn-primary align-self-end" role="button">
                 <i class="fas fa-plus-circle"></i> 
                 Add a new Item
@@ -48,15 +48,15 @@
                             <!-- ------------------------- -->
                             <!-- Fix the EDIT button below -->
                             <!-- ------------------------ -->
-                            <a href="#" class="btn btn-primary btn-sm">
-                            <i class="fas fa-pencil-alt"></i></a>
+                            <a href="/book/edit/<%= books[count]._id %>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i>Edit</a>
                         </td>
                         <td class="text-center">
                             <!-- --------------------------- -->
                             <!-- Fix the DELETE button below -->
                             <!-- --------------------------- -->
-                            <a href="#" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i></a>
+                            <a href="/book/delete/<%= books[count]._id %>" " class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i>Delete</a>
                         </td>
                     </tr>
                 <% } %>
