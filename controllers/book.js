@@ -1,3 +1,8 @@
+// Filename:     controllers/book.js
+// Student name: Kyle O'Keeffe
+// StudentID:    301156790
+// Date:         Oct. 30, 2021 
+
 // create a reference to the model
 let Book = require('../models/book');
 
